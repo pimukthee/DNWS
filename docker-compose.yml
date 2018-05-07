@@ -1,0 +1,19 @@
+version: "1"
+
+services:
+  web:
+    image: dnws:hw4
+    deploy:
+      replicas: 3
+    ports:
+      - "8080:8080"
+    networks:
+      - webnet
+
+  redis:
+    image: redis
+    networks:
+      - webnet
+
+networks:
+  webnet:
